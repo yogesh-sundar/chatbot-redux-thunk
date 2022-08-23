@@ -1,0 +1,15 @@
+{
+  "chats": [],
+  "bots": [
+    {
+      "id": 1,
+      "message": "how can i help you ",
+      "type": "out_going"
+    },
+    {
+      "id": 2,
+      "message": "good ",
+      "type": "out_going"
+    }
+  ]
+}
