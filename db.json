@@ -1,5 +1,11 @@
 {
-  "chats": [],
+  "chats": [
+    {
+      "message": "hello",
+      "type": "incoming",
+      "id": 1
+    }
+  ],
   "bots": [
     {
       "id": 1,

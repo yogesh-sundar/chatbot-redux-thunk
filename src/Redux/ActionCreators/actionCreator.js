@@ -2,13 +2,13 @@ import axios from 'axios'
 import { actionType } from '../Actions/Actions'
 
 export const addChat = (chat) => async (dispatch) => {
-  const response = await axios.post('http://localhost:5000/chats', chat)
+  const response = await axios.post('http://localhost:4000/chats', chat)
 
   dispatch({ type: actionType.ADD_CHAT, payload: chat })
 }
 
 export const deleteChat = () => async (dispatch) => {
-  const response = await axios.post('http://localhost:5000/reset', {
+  const response = await axios.post('http://localhost:4000/reset', {
     chats: [],
     bots: [
       {
@@ -33,28 +33,28 @@ export const deleteChat = () => async (dispatch) => {
 }
 
 export const fetchBotmsg = () => async (dispatch) => {
-  const response = await axios.get('http://localhost:5000/bots')
+  const response = await axios.get('http://localhost:4000/bots')
   dispatch({ type: actionType.FETCH_BOT_MSG, payload: response.data })
 }
 
 export const updateChat = (chat, id) => async (dispatch) => {
-  const response = await axios.put(`http://localhost:5000/chats/${id}`, chat)
+  const response = await axios.put(`http://localhost:4000/chats/${id}`, chat)
   dispatch({ type: actionType.EDIT_CHAT })
 }
 
 export const fetchChatmsg = (id) => async (dispatch) => {
-  const response = await axios.get(`http://localhost:5000/chats/${id}`)
+  const response = await axios.get(`http://localhost:4000/chats/${id}`)
   dispatch({ type: actionType.FETCH_CHAT_MSG, payload: response.data })
 }
 
 export const fetchChat = () => async (dispatch) => {
-  const response = await axios.get('http://localhost:5000/chats')
+  const response = await axios.get('http://localhost:4000/chats')
 
   dispatch({ type: actionType.FETCH_CHAT, payload: response.data })
 }
 
 export const deleteMessage = (id) => async (dispatch) => {
-  const response = await axios.delete(`http://localhost:5000/chats/${id}`)
+  const response = await axios.delete(`http://localhost:4000/chats/${id}`)
 
   dispatch({ type: actionType.DELETE_MSG})
 }

@@ -22,6 +22,7 @@ import {
 } from '../Redux/ActionCreators/actionCreator'
 
 function Chat() {
+
   const data = useSelector((state) => state.data.chat)
   const botData = useSelector((botmsg) => botmsg.data.bot)
 
@@ -54,7 +55,7 @@ function Chat() {
   }, [])
 
   const handleSend = () => {
-    console.log('details', chatDetails)
+    // console.log('details', chatDetails)
     if (chatDetails) {
       // dispatch(deleteChat())
       dispatch(addChat(chatDetails))
@@ -74,7 +75,7 @@ function Chat() {
     if (msgData) {
       setChatmessage({ ...msgData })
       setId(msgData.id)
-      console.log('msgData', msgData.id)
+      // console.log('msgData', msgData.id)
     }
   }, [msgData])
 
@@ -135,6 +136,7 @@ function Chat() {
                 <>
                   {data.map((item, i) => (
                     <div
+
                       key={i}
                       style={{
                         display: 'flex',
@@ -142,7 +144,7 @@ function Chat() {
                       }}
                     >
                       <div className="incoming-msg-container">
-                        <div className="incoming-msg">{item.message}</div>
+                        <div data-testid="incoming-message" className="incoming-msg">{item.message}</div>
                         <span>
                           <Button
                             className="edit-btn"
@@ -191,6 +193,7 @@ function Chat() {
               endAdornment: (
                 <InputAdornment position="end">
                   <TelegramIcon
+                  data-testid="send"
                     className="telegram-icon"
                     onClick={handleSend}
                   />
